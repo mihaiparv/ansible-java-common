@@ -1,0 +1,14 @@
+---
+- name: ensure the repository is configured
+  apt_repository:
+    repo: {{ openjdk_repository }}
+    state: present
+    update_cache: yes
+  tags: openjdk
+
+- name: ensure openjdk package is installed
+  apt:
+    name: {{ openjdk_package_name }}
+    state: present
+  tags: openjdk
+
